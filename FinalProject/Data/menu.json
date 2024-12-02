@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Classic Burger",
+    "description": "Juicy beef patty with cheese",
+    "price": 9.99,
+    "category": "Main Course"
+  },
+  {
+    "name": "Margherita Pizza",
+    "description": "Traditional Italian pizza",
+    "price": 12.5,
+    "category": "Main Course"
+  }
+]

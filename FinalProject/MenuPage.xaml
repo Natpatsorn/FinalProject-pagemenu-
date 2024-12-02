@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject.MenuPage"
+             Title="Menu">
+    <ScrollView>
+        <VerticalStackLayout Padding="10"
+                Spacing="10">
+            <!-- Header Section -->
+            <Label Text="รายการร้านอาหาร"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   Margin="10,20"/>
+
+            <!-- Collection of Restaurants -->
+            <Grid RowDefinitions="Auto,*">
+                <Label
+                    Grid.Row="0"
+                    Text="Our Menu"
+                    FontSize="24"
+                    HorizontalOptions="Center"
+                    Margin="0,20,0,10"/>
+
+                <CollectionView
+                    x:Name="MenuListView"
+                    Grid.Row="1"
+                    SelectionMode="Single"
+                    SelectionChanged="OnMenuItemSelected">
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Margin="10"
+                                   Padding="10">
+                                <Grid ColumnDefinitions="Auto,*,Auto">
+                                    <Image
+                                        Grid.Column="0"
+                                        Source="{Binding ImageUrl}"
+                                        HeightRequest="60"
+                                        WidthRequest="60"
+                                        Aspect="AspectFill"/>
+
+                                    <VerticalStackLayout Grid.Column="1"
+                                                         Margin="10,0">
+                                        <Label
+                                            Text="{Binding Name}"
+                                            FontSize="18"
+                                            FontAttributes="Bold"/>
+                                        <Label
+                                            Text="{Binding Description}"
+                                            FontSize="14"
+                                            TextColor="Gray"/>
+                                    </VerticalStackLayout>
+
+                                    <Label
+                                        Grid.Column="2"
+                                        Text="{Binding Price, StringFormat='${0:F2}'}"
+                                        FontSize="16"
+                                        FontAttributes="Bold"
+                                        VerticalOptions="Center"/>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
